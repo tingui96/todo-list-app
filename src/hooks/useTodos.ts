@@ -29,7 +29,8 @@ const TodoStore = create<todoState>((set) => ({
         }))
         set((state) => ({
           ...state,
-          sync: SaveTodosStorage(state.todos)
+          sync: SaveTodosStorage(state.todos),
+          completedCount: completedTodolistCount(state.todos)
         }))
     },
     handleSave: (title:string) => {
